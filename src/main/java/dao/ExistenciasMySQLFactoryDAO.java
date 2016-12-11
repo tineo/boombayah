@@ -25,10 +25,10 @@ public class ExistenciasMySQLFactoryDAO implements ExistenciasDAO{
                     , Statement.RETURN_GENERATED_KEYS);
 
             psp.setString(1, existencias.getCodigo_libro());
-            psp.setString(2, existencias.getCodigo_existencia());
-            psp.setString(3, existencias.getUbicacion());
-            psp.setString(4, existencias.getEstado());
-            psp.setString(5, existencias.getTipo_prestamo());
+          //  psp.setString(2, existencias.getCodigo_existencia());
+            psp.setString(2, existencias.getUbicacion());
+            psp.setString(3, existencias.getEstado());
+            psp.setString(4, existencias.getTipo_prestamo());
             psp.executeUpdate();
 
             ResultSet rs = psp.getGeneratedKeys();
