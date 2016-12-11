@@ -26,29 +26,7 @@
     <orderEntry type="library" name="Maven: org.freemarker:freemarker:2.3.19" level="project" />
     <orderEntry type="library" name="Maven: org.postgresql:postgresql:9.4-1201-jdbc4" level="project" />
     <orderEntry type="library" name="Maven: com.heroku.sdk:heroku-jdbc:0.1.1" level="project" />
-    <orderEntry type="library" name="Maven: mysql:mysql-connector-java:6.0.2" level="project" />
-    <orderEntry type="library" name="Maven: com.sparkjava:spark-template-pebble:2.3" level="project" />
-    <orderEntry type="library" name="Maven: com.mitchellbosecke:pebble:1.4.4" level="project" />
-    <orderEntry type="library" name="Maven: com.google.guava:guava:16.0.1" level="project" />
-    <orderEntry type="library" name="Maven: com.coverity.security:coverity-escapers:1.1" level="project" />
-    <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.7" level="project" />
-    <orderEntry type="library" name="Maven: com.sparkjava:spark-core:2.2" level="project" />
-    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.7" level="project" />
-    <orderEntry type="library" name="Maven: org.slf4j:slf4j-simple:1.7.7" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-server:9.0.2.v20130417" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty.orbit:javax.servlet:3.0.0.v201112011016" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-http:9.0.2.v20130417" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-util:9.0.2.v20130417" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-io:9.0.2.v20130417" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-webapp:9.0.2.v20130417" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-xml:9.0.2.v20130417" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-servlet:9.0.2.v20130417" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-security:9.0.2.v20130417" level="project" />
-    <orderEntry type="library" name="Maven: com.sparkjava:spark-template-freemarker:2.0.0" level="project" />
-    <orderEntry type="library" name="Maven: org.freemarker:freemarker:2.3.19" level="project" />
-    <orderEntry type="library" name="Maven: org.postgresql:postgresql:9.4-1201-jdbc4" level="project" />
-    <orderEntry type="library" name="Maven: com.heroku.sdk:heroku-jdbc:0.1.1" level="project" />
-    <orderEntry type="library" name="Maven: mysql:mysql-connector-java:6.0.2" level="project" />
+    <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.39" level="project" />
     <orderEntry type="library" name="Maven: com.sparkjava:spark-template-pebble:2.3" level="project" />
     <orderEntry type="library" name="Maven: com.mitchellbosecke:pebble:1.4.4" level="project" />
     <orderEntry type="library" name="Maven: com.google.guava:guava:16.0.1" level="project" />
