@@ -99,9 +99,42 @@
                     </div>
                 </div>
 
+                <div class="ui error message"></div>
+
             </div>
         </form>
     </div>
 </div>
+<script type="text/javascript">
+    $(function() {
+
+        alert('form');
+        $('form')
+                .form({
+                    fields: {
+                        codigo_clasificacion: {
+                            identifier: 'codigo_clasificacion',
+                            rules: [
+                                {
+                                    type: 'empty',
+                                    prompt: 'Igresa un Cod. Bibliografico'
+                                }
+                            ]
+                        },
+                        titulo: {
+                            identifier: 'titulo',
+                            rules: [
+                                {
+                                    type: 'empty',
+                                    prompt: 'Ingresa un titulo'
+                                }
+                            ]
+                        }
+                    }
+                })
+        ;
+    });
+
+</script>
 </body>
 </html>
