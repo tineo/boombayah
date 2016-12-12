@@ -84,7 +84,7 @@ CREATE TABLE IF NOT EXISTS `prestamo` (
 
 -- Dumping structure for table biblioteca.usuario
 CREATE TABLE IF NOT EXISTS `usuario` (
-  `id_usuario` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
   `nombres` varchar(45) DEFAULT NULL,
   `apellido_paterno` varchar(45) DEFAULT NULL,
   `apellido_materno` varchar(45) DEFAULT NULL,

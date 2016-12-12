@@ -9,10 +9,12 @@ import dao.Etiqueta_libroMySQLFactoryDAO;
 import entity.Etiqueta_libro;
 import entity.Libro;
 import service.LibroServiceImpl;
+import service.UsuarioServiceImpl;
 import spark.ModelAndView;
 import spark.template.freemarker.FreeMarkerEngine;
 import util.ExistenciasRequestDraw;
 import util.LibroRequestDraw;
+import util.UsuarioRequestDraw;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -72,6 +74,33 @@ public class Main {
             res.redirect("/ingresar/existencias?msg=ok");
             return "OK";
         });
+        /*Usuario*/
+        get("/ingresar/usuario", (req, res) -> {
+            Map<String, Object> attributes = new HashMap<>();
+            return new ModelAndView(attributes, "ingresarusuario.ftl");
+        }, new FreeMarkerEngine());
+
+        post("/form/ingresarusuario", (req, res) -> {
+            //Libro libro =  new LibroRequestDraw(req);
+
+            UsuarioServiceImpl service = new UsuarioServiceImpl();
+            service.insertarUsuario(new UsuarioRequestDraw(req));
+
+            res.redirect("/ingresar/usuario?msg=ok");
+            return "OK";
+        });
+
+        before("/", (request, response) -> {
+            if (request.session().attribute("user") == null) {
+                response.redirect("/login");
+            }
+        });
+
+        before("/registrar/*", (request, response) -> {
+            if (request.session().attribute("user") == null) {
+                response.redirect("/login");
+            }
+        });
 
         /*before("/", (request, response) -> {
             if (request.session().attribute("user") == null) {
@@ -120,20 +149,33 @@ public class Main {
             return new ModelAndView(attributes, "master.ftl");
         }, new FreeMarkerEngine());
 
-        get("/ingresar/paciente", (req, res) -> {
-            Map<String, Object> attributes = new HashMap<>();
-            return new ModelAndView(attributes, "ingresar_paciente.ftl");
-        }, new FreeMarkerEngine());
+         /*Validar*/
+        post("/validar",(req, res) -> {
 
-        get("/ingresar/psicologo", (req, res) -> {
             Map<String, Object> attributes = new HashMap<>();
-            return new ModelAndView(attributes, "ingresar_psicologo.ftl");
-        }, new FreeMarkerEngine());
 
-        get("/registrar/sesion", (req, res) -> {
-            Map<String, Object> attributes = new HashMap<>();
-            return new ModelAndView(attributes, "registrar_sesion.ftl");
-        }, new FreeMarkerEngine());
+            String username = req.queryParams("username");
+            String password = req.queryParams("password");
+
+            UsuarioServiceImpl service = new UsuarioServiceImpl();
+            try {
+                if(service.validarUsuario(username, password)){
+                    //Creacion de la sesion
+                    req.session().attribute("user", username);
+
+                    res.redirect("/");
+                }else{
+                    res.redirect("/login");
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            //return new ModelAndView(attributes, "login.ftl");
+            return "OK";
+        });
+
+
+
 
         //PRUEBADAO
 
