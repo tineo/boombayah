@@ -21,14 +21,14 @@ public class ExistenciasMySQLFactoryDAO implements ExistenciasDAO{
         int last = 0;
 
         try {
-            psp = this.connection.prepareStatement("INSERT INTO exixtencia VALUES (NULL, ?,?,?,?,?)"
+            psp = this.connection.prepareStatement("INSERT INTO existencias VALUES (NULL, ?,?,?,?)"
                     , Statement.RETURN_GENERATED_KEYS);
 
-            psp.setString(1, existencias.getCodigo_libro());
-            psp.setString(2, existencias.getCodigo_existencia());
-            psp.setString(3, existencias.getUbicacion());
-            psp.setString(4, existencias.getEstado());
-            psp.setString(5, existencias.getTipo_prestamo());
+            psp.setString(1, existencias.getCodigoLibro());
+          //  psp.setString(2, existencias.getCodigo_existencia());
+            psp.setString(2, existencias.getUbicacion());
+            psp.setString(3, existencias.getEstado());
+            psp.setString(4, existencias.getTipoPrestamo());
             psp.executeUpdate();
 
             ResultSet rs = psp.getGeneratedKeys();
@@ -58,11 +58,10 @@ public class ExistenciasMySQLFactoryDAO implements ExistenciasDAO{
             while (rs.next()) {
                 Existencias existencia = new Existencias();
                 existencia.setId_Existencias(rs.getInt(1));
-                existencia.setCodigo_libro(rs.getString(2));
-                existencia.setCodigo_existencia(rs.getString(3));
-                existencia.setUbicacion(rs.getString(4));
-                existencia.setEstado(rs.getString(5));
-                existencia.setTipo_prestamo(rs.getString(6));
+                existencia.setCodigoLibro(rs.getString(2));
+                existencia.setUbicacion(rs.getString(3));
+                existencia.setEstado(rs.getString(4));
+                existencia.setTipoPrestamo(rs.getString(5));
                 listado.add(existencia);
             }
 

@@ -16,17 +16,17 @@ public class LibroRequestDraw extends Libro {
         if(this.request.queryParams("codigo_libro")!=null)
             super.setCodigo_libro(Integer.parseInt(this.request.queryParams("codigo_libro")));
 
-        super.setCodigo_clasificacion(this.request.queryParams("codigo_clasificacion"));
+        super.setCodigoClasificacion(this.request.queryParams("codigo_clasificacion"));
 
         super.setTitulo(this.request.queryParams("titulo"));
 
         super.setFormato(this.request.queryParams("formato"));
 
-        super.setISBN(this.request.queryParams("isbn"));
+        super.setIsbn(this.request.queryParams("isbn"));
 
         super.setAutor(this.request.queryParams("autor"));
 
-        super.setPie_imprenta(this.request.queryParams("pie_imprenta"));
+        super.setPieImprenta(this.request.queryParams("pie_imprenta"));
 
         if(this.request.queryParams("paginas")!=null)
             super.setPaginas(Integer.parseInt(this.request.queryParams("paginas")));
