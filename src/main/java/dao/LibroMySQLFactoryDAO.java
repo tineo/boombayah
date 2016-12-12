@@ -129,12 +129,12 @@ public class LibroMySQLFactoryDAO implements LibroDAO {
 			while (rs.next()) {
 				Libro libro = new Libro();
 				libro.setCodigo_libro(rs.getInt(1));
-				libro.setCodigo_clasificacion(rs.getString(2));
+				libro.setCodigoClasificacion(rs.getString(2));
 				libro.setTitulo(rs.getString(3));
 				libro.setFormato(rs.getString(4));
-				libro.setISBN(rs.getString(5));
+				libro.setIsbn(rs.getString(5));
 				libro.setAutor(rs.getString(6));
-				libro.setPie_imprenta(rs.getString(7));
+				libro.setPieImprenta(rs.getString(7));
 				libro.setPaginas(rs.getInt(8));
 				libro.setDescripcion(rs.getString(9));
 				libro.setIdioma(rs.getString(10));
