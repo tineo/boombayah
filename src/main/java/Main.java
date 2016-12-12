@@ -58,6 +58,11 @@ public class Main {
             return new ModelAndView(attributes, "ingresarexistencias.ftl");
         }, new FreeMarkerEngine());
 
+        get("/bus", (req, res) -> {
+            Map<String, Object> attributes = new HashMap<>();
+            return new ModelAndView(attributes, "buscando.ftl");
+        }, new FreeMarkerEngine());
+
         post("/form/ingresarexistencias", (req, res) -> {
             //Libro libro =  new LibroRequestDraw(req);
 
