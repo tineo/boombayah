@@ -9,5 +9,5 @@ public interface LibroDAO {
 	int insertarLibro(Libro libro) throws Exception;
     List<Libro> listarLibro() throws Exception;
     int eliminarLibro(int codigo) throws Exception;
-
+    List<Libro> buscarLibro(String key) throws Exception;
 }

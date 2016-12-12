@@ -2,6 +2,8 @@
  * Created by Alejandro on 24/11/2016.
  */
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import dao.Etiqueta_libroMySQLFactoryDAO;
 import entity.Etiqueta_libro;
 import entity.Libro;
@@ -110,7 +112,7 @@ public class Main {
         }, new FreeMarkerEngine());
 
         //PRUEBADAO
-
+/*
         Etiqueta_libroMySQLFactoryDAO el =new Etiqueta_libroMySQLFactoryDAO();
         Etiqueta_libro e = new Etiqueta_libro();
         e.setCodigo_etiqueta("125877");
@@ -265,25 +267,22 @@ public class Main {
 
             return new ModelAndView(attributes, "index.ftl");
         }, new FreeMarkerEngine());
-
-
+*/
         Gson gson = new GsonBuilder()
                 .setDateFormat("MM/dd/yyyy HH:mm:ss").create();
         //.setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS").create();
         //new Gson ();
-        get("/json","application/json",(request,response)->{
+        get("/json/:key","application/json",(request,response)->{
+            String key = request.params(":key");
+            LibroServiceImpl service = new LibroServiceImpl();
 
-            Psicologo psico =  new Psicologo();
-            psico.setNombres("s");
-
-            PsicologoServiceImpl s =  new PsicologoServiceImpl();
-            return s.buscarPsicologos(psico);
+            return service.buscarLibro(key);
 
             //PacienteServiceImpl pa= new PacienteServiceImpl();
             //return pa.listarPaciente();
 
         },gson::toJson);
-
+/*
         get("/json/psicologo/:accion","application/json",(request,response)->{
 
             String accion = request.params(":accion");

@@ -105,5 +105,56 @@ public class LibroMySQLFactoryDAO implements LibroDAO {
 	        }
 	}
 
+	@Override
+	public List<Libro> buscarLibro(String key) throws Exception {
+		Connection connection = null;
+		PreparedStatement pst = null;
+		ArrayList<Libro> listado = new ArrayList<Libro>();
+
+		try {
+			connection = this.connection;
+			pst = connection.prepareStatement("SELECT * FROM libro WHERE autor LIKE ? OR codigo_clasificacion LIKE ?" +
+					" OR titulo LIKE ? OR formato LIKE ? OR ISBN LIKE ?" +
+					" OR pie_imprenta LIKE ? OR descripcion LIKE ? OR idioma LIKE ?" );
+			pst.setString(1,key);
+			pst.setString(2,key);
+			pst.setString(3,key);
+			pst.setString(4,key);
+			pst.setString(5,key);
+			pst.setString(6,key);
+			pst.setString(7,key);
+			pst.setString(8,key);
+
+			ResultSet rs = pst.executeQuery();
+			while (rs.next()) {
+				Libro libro = new Libro();
+				libro.setCodigo_libro(rs.getInt(1));
+				libro.setCodigo_clasificacion(rs.getString(2));
+				libro.setTitulo(rs.getString(3));
+				libro.setFormato(rs.getString(4));
+				libro.setISBN(rs.getString(5));
+				libro.setAutor(rs.getString(6));
+				libro.setPie_imprenta(rs.getString(7));
+				libro.setPaginas(rs.getInt(8));
+				libro.setDescripcion(rs.getString(9));
+				libro.setIdioma(rs.getString(10));
+				libro.setVistas(rs.getInt(11));
+				listado.add(libro);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				connection.close();
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return listado;
+
+	}
+
 
 }
