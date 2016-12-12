@@ -310,7 +310,7 @@ public class Main {
 
             String accion = request.params(":accion");
 
-            Psicologo psicologo =  new PsicologoRequestDraw(request);
+                Psicologo psicologo =  new PsicologoRequestDraw(request);
             int codigo = psicologo.getCodigo_psicologo();
 
             PsicologoServiceImpl pa= new PsicologoServiceImpl();
