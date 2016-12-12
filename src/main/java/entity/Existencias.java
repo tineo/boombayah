@@ -1,58 +1,52 @@
 package entity;
 
 public class Existencias{
-	int Id_Existencias;
-	String Codigo_libro;
-	String Codigo_existencia;
-	String Ubicacion;
-	String Estado;
-	String Tipo_prestamo;
+	int id_Existencias;
+	String codigoLibro;
+	String ubicacion;
+	String estado;
+	String tipoPrestamo;
 
 	public int getId_Existencias() {
-		return Id_Existencias;
+		return id_Existencias;
 	}
 
 	public void setId_Existencias(int id_Existencias) {
-		Id_Existencias = id_Existencias;
+		id_Existencias = id_Existencias;
 	}
 
-	public String getCodigo_libro() {
-		return Codigo_libro;
+	public String getCodigoLibro() {
+		return codigoLibro;
 	}
 
-	public void setCodigo_libro(String codigo_libro) {
-		Codigo_libro = codigo_libro;
+	public void setCodigoLibro(String codigoLibro) {
+		this.codigoLibro = codigoLibro;
 	}
 
-	public String getCodigo_existencia() {
-		return Codigo_existencia;
-	}
 
-	public void setCodigo_existencia(String codigo_existencia) {
-		Codigo_existencia = codigo_existencia;
-	}
+
 
 	public String getUbicacion() {
-		return Ubicacion;
+		return ubicacion;
 	}
 
 	public void setUbicacion(String ubicacion) {
-		Ubicacion = ubicacion;
+		this.ubicacion = ubicacion;
 	}
 
 	public String getEstado() {
-		return Estado;
+		return estado;
 	}
 
 	public void setEstado(String estado) {
-		Estado = estado;
+		this.estado = estado;
 	}
 
-	public String getTipo_prestamo() {
-		return Tipo_prestamo;
+	public String getTipoPrestamo() {
+		return tipoPrestamo;
 	}
 
-	public void setTipo_prestamo(String tipo_prestamo) {
-		Tipo_prestamo = tipo_prestamo;
+	public void setTipoPrestamo(String tipoPrestamo) {
+		this.tipoPrestamo = tipoPrestamo;
 	}
 }

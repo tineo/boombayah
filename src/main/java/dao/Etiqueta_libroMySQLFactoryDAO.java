@@ -21,13 +21,13 @@ public class Etiqueta_libroMySQLFactoryDAO implements Etiqueta_libroDAO {
     }
 
     @Override
-    public int insertar(Etiqueta_libro etiqueta_libro) throws Exception {
+    public int insertarEtiqueta_libro(Etiqueta_libro etiqueta_libro) throws Exception {
         PreparedStatement ps =null;
         int last = 0;
         try {
             ps = this.connection.prepareStatement("INSERT INTO etiqueta_libro VALUES (NULL,?,?)",Statement.RETURN_GENERATED_KEYS);
-            ps.setString(1,etiqueta_libro.getCodigo_libro());
-            ps.setString(2,etiqueta_libro.getCodigo_etiqueta());
+            ps.setString(1,etiqueta_libro.getId_libro());
+            ps.setString(2,etiqueta_libro.getId_etiqueta());
             ps.executeUpdate();
 
             ResultSet rs = ps.getGeneratedKeys();
@@ -41,7 +41,7 @@ public class Etiqueta_libroMySQLFactoryDAO implements Etiqueta_libroDAO {
     }
 
     @Override
-    public List<Etiqueta_libro> buscar(Etiqueta_libro etiqueta_libro) throws Exception {
+    public List<Etiqueta_libro> buscarEtiqueta(Etiqueta_libro etiqueta_libro) throws Exception {
         Connection connection = null;
         PreparedStatement ps =null;
         ArrayList<Etiqueta_libro> lista =new ArrayList<Etiqueta_libro>();
@@ -51,11 +51,11 @@ public class Etiqueta_libroMySQLFactoryDAO implements Etiqueta_libroDAO {
             ArrayList<String> params = new ArrayList<String>();
             HashMap<String,String> map = new HashMap<String,String>();
 
-            if(etiqueta_libro.getCodigo_libro()!=null){
-                map.put("id_libro",etiqueta_libro.getCodigo_libro());
+            if(etiqueta_libro.getId_libro()!=null){
+                map.put("codigo_libro",etiqueta_libro.getId_libro());
             }
-            if(etiqueta_libro.getCodigo_etiqueta()!=null){
-                map.put("id_etiqueta",etiqueta_libro.getCodigo_etiqueta());
+            if(etiqueta_libro.getId_etiqueta()!=null){
+                map.put("codigo_etiqueta",etiqueta_libro.getId_etiqueta());
             }
 
             for (String param : map.keySet()){
@@ -92,8 +92,8 @@ public class Etiqueta_libroMySQLFactoryDAO implements Etiqueta_libroDAO {
             while (rs.next()) {
                 Etiqueta_libro s = new Etiqueta_libro();
                 s.setId_etiqueta_libro(rs.getInt("id_etiqueta_libro"));
-                s.setCodigo_libro(rs.getString("id_libro"));
-                s.setCodigo_etiqueta(rs.getString("id_etiqueta"));
+                s.setId_libro(rs.getString("codigo_libro"));
+                s.setId_etiqueta(rs.getString("codigo_etiqueta"));
 
                 lista.add(s);
             }
@@ -108,6 +108,45 @@ public class Etiqueta_libroMySQLFactoryDAO implements Etiqueta_libroDAO {
             return lista;
         }
     }
+
+    @Override
+    public List<Etiqueta_libro> listarEtiquetasLibro() throws Exception {
+        Connection connection = null;
+        PreparedStatement psmt = null;
+
+        ArrayList<Etiqueta_libro> listado = new ArrayList<Etiqueta_libro>();
+
+        try {
+            connection = this.connection;
+            psmt = connection.prepareStatement("SELECT * FROM etiqueta_libro ");
+            ResultSet rs = psmt.executeQuery();
+            while (rs.next()) {
+
+                Etiqueta_libro etiquetaLibro = new Etiqueta_libro();
+                etiquetaLibro.setId_etiqueta(rs.getString("codigo_etiqueta"));
+                etiquetaLibro.setId_libro(rs.getString("codigo_libro"));
+
+
+                listado.add(etiquetaLibro);
+
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+
+        }
+        return listado;
+    }
+
+
 
     @Override
     public int eliminar(Etiqueta_libro etiqueta_libro) throws Exception {

@@ -2,9 +2,11 @@
  * Created by Alejandro on 24/11/2016.
  */
 
+import service.ExistenciasServiceImpl;
 import service.LibroServiceImpl;
 import spark.ModelAndView;
 import spark.template.freemarker.FreeMarkerEngine;
+import util.ExistenciasRequestDraw;
 import util.LibroRequestDraw;
 
 import java.util.HashMap;
@@ -39,6 +41,23 @@ public class Main {
             service.insertarLibro(new LibroRequestDraw(req));
 
             res.redirect("/ingresar/libro?msg=ok");
+            return "OK";
+        });
+
+
+        /*Existencias*/
+        get("/ingresar/existencias", (req, res) -> {
+            Map<String, Object> attributes = new HashMap<>();
+            return new ModelAndView(attributes, "ingresarexistencias.ftl");
+        }, new FreeMarkerEngine());
+
+        post("/form/ingresarexistencias", (req, res) -> {
+            //Libro libro =  new LibroRequestDraw(req);
+
+            ExistenciasServiceImpl service = new ExistenciasServiceImpl();
+            service.insertarExistencias(new ExistenciasRequestDraw(req));
+
+            res.redirect("/ingresar/existencias?msg=ok");
             return "OK";
         });
 
@@ -109,8 +128,8 @@ public class Main {
         /*
         Etiqueta_libroMySQLFactoryDAO el =new Etiqueta_libroMySQLFactoryDAO();
         Etiqueta_libro e = new Etiqueta_libro();
-        e.setCodigo_etiqueta("125877");
-        e.setCodigo_libro("122345");
+        e.setId_etiqueta("125877");
+        e.setCodigoLibro("122345");
         List<Etiqueta_libro> al = new ArrayList<Etiqueta_libro>();
         al = el.buscar(e);
         */

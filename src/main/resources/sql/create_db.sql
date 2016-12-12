@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `etiqueta` (
 
 -- Dumping structure for table biblioteca.etiqueta_libro
 CREATE TABLE IF NOT EXISTS `etiqueta_libro` (
-  `id_etiqueta_libro` int(11) NOT NULL,
+  `id_etiqueta_libro` int(11) NOT NULL AUTO_INCREMENT,
   `id_libro` varchar(10) NOT NULL,
   `id_etiqueta` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id_etiqueta_libro`)
@@ -39,11 +39,11 @@ CREATE TABLE IF NOT EXISTS `etiqueta_libro` (
 
 -- Dumping structure for table biblioteca.existencias
 CREATE TABLE IF NOT EXISTS `existencias` (
-  `id_existencias` int(11) NOT NULL,
+  `id_existencias` int(11) NOT NULL AUTO_INCREMENT,
   `id_libro` varchar(10) NOT NULL,
   `ubicacion` varchar(45) DEFAULT 'FISI',
   `estado` varchar(20) DEFAULT NULL,
-  `tipo_prestamo` varchar(45) DEFAULT NULL,
+  `tipoPrestamo` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id_existencias`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -53,12 +53,12 @@ CREATE TABLE IF NOT EXISTS `existencias` (
 -- Dumping structure for table biblioteca.libro
 CREATE TABLE IF NOT EXISTS `libro` (
   `id_libro` int(11) NOT NULL AUTO_INCREMENT,
-  `codigo_clasificacion` varchar(20) DEFAULT NULL,
+  `codigoClasificacion` varchar(20) DEFAULT NULL,
   `titulo` varchar(45) DEFAULT NULL,
   `formato` varchar(45) DEFAULT NULL,
   `ISBN` varchar(45) DEFAULT NULL,
   `autor` varchar(45) DEFAULT NULL,
-  `pie_imprenta` varchar(45) DEFAULT NULL,
+  `pieImprenta` varchar(45) DEFAULT NULL,
   `paginas` int(11) DEFAULT NULL,
   `descripcion` varchar(45) DEFAULT NULL,
   `idioma` varchar(20) DEFAULT NULL,

@@ -5,7 +5,7 @@ public class MySQLFactoryDAO extends FactoryDAO {
 
     @Override
     public UsuarioDAO getUsuarioDAO() {
-        return  new UsuarioMySQLFactoryDAO();
+        return new UsuarioMySQLFactoryDAO();
     }
 
     @Override
@@ -22,4 +22,10 @@ public class MySQLFactoryDAO extends FactoryDAO {
     public ExistenciasDAO getExistenciasDAO() {
         return new ExistenciasMySQLFactoryDAO();
     }
+
+    @Override
+    public EtiquetaDAO getEtiquetaDao() {
+        return new EtiquetaMySQLFactoryDAO();
+    }
 }
+

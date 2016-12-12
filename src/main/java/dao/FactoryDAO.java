@@ -11,6 +11,7 @@ public abstract class FactoryDAO {
     public abstract PrestamoDAO getPrestamoDAO();
     public abstract LibroDAO getLibroDAO();
     public abstract ExistenciasDAO getExistenciasDAO();
+    public abstract EtiquetaDAO getEtiquetaDao();
 
 
 
