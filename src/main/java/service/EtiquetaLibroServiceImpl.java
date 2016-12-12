@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class EtiquetaLibroServiceImpl implements EtiquetaLibroService {
     FactoryDAO factory = FactoryDAO.getFactory(FactoryDAO.MYSQL_FACTORY);
-    Etiqueta_libroDAO etiqueta_libroDAO = factory.getEtiqueta_libroDAO();
+    Etiqueta_libroDAO etiqueta_libroDAO = factory.getEtiquetaLibroDAO();
     @Override
     public int insertarEtiqueta_libro(Etiqueta_libro etiqueta) throws Exception {
         return  etiqueta_libroDAO.insertarEtiqueta_libro(etiqueta);

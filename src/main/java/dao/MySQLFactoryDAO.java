@@ -27,5 +27,10 @@ public class MySQLFactoryDAO extends FactoryDAO {
     public EtiquetaDAO getEtiquetaDao() {
         return new EtiquetaMySQLFactoryDAO();
     }
+
+    @Override
+    public Etiqueta_libroDAO getEtiquetaLibroDAO() {
+        return new Etiqueta_libroMySQLFactoryDAO();
+    }
 }
 
