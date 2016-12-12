@@ -2,9 +2,11 @@
 <html>
 <head>
     <title class="titulo">Biblioteca FISI</title>
-
-    <link rel="shortcut icon" type="image/x-icon" href="logo.png" class="imagenLogo" >
-    <link rel="stylesheet" href="css/style3.css">
+    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="/logo.png" class="imagenLogo" >
+    <link rel="stylesheet" href="/css/style3.css">
 </head>
 <body>
 <div class="topbar">
@@ -20,8 +22,11 @@
     <FORM id="searchbox" >
         <div><strong>Busquedad Basica</strong></div>
         <div id="buscador">
-            <input type="text" placeholder="  Ingrese el nombre del libro a buscar..." id="buscador" name="termino"  size="100" />
-            <input type="submit"  id="Search" name=botonBuscar VALUE="Buscar" /><br><br>
+            <input type="text" placeholder="  Ingrese el nombre del libro a buscar..." id="keyword" name="termino"  size="100" />
+            <button type="button"  id="Search" name=botonBuscar VALUE="Buscar">
+                buscar
+            </button>
+            <br><br>
             <span> Campo de busquedad:</span>
             <select id="select" name="campo">
                 <option value="todos">Todos los campos</option>
@@ -60,30 +65,19 @@
     <button id="next" name="btn_next">Siguiente</button>
 </div>
 <table id="tabla">
-    <tr>
-        <th>#</th>
-        <th>Codigo</th>
-        <th>Autor</th>
-        <th>Titulo</th>
-        <th>A&ntildeo</th>
-        <th>Formato</th>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>001</td>
-        <td>Berg, Alan Mark,</td>
-        <td>Jenkins continuous integration cookbook : over 90 recipes to produce great results from Jenkins using pro-level practices, techniques, and solutions</td>
-        <td>2015</td>
-        <td>PDF</td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td>002</td>
-        <td>Schildt, Herbert</td>
-        <td>Java 8</td>
-        <td>2016</td>
-        <td>Libro</td>
-    </tr>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Codigo</th>
+            <th>Autor</th>
+            <th>Titulo</th>
+            <th>ISBN</th>
+            <th>Formato</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
 </table>
 <div id="botones">
     <button id="prev" name="btn_prev">Anterior</button>
@@ -93,7 +87,25 @@
 </div>
 <hr>
 <script type="text/javascript">
+    $(function() {
+        $( "#Search").click(function(){
+            var bus = $("#keyword").val();
+            $.getJSON( "/json/"+bus ,function( data ) {
+                $("#tabla tbody > tr").remove();
+                $.each(data, function(i, item) {
+                    var $tr = $('<tr>').append(
+                            $('<td>').text(i),
+                            $('<td>').text(item.codigoClasificacion),
+                            $('<td>').text(item.autor),
+                            $('<td>').text(item.Titulo),
+                            $('<td>').text(item.isbn),
+                            $('<td>').text(item.formato)
+                    ).appendTo('#tabla');
+                });
 
+            });
+        });
+    });
     </script>
 </body>
 </html>
