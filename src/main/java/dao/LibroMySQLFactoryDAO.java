@@ -116,14 +116,14 @@ public class LibroMySQLFactoryDAO implements LibroDAO {
 			pst = connection.prepareStatement("SELECT * FROM libro WHERE autor LIKE ? OR codigo_clasificacion LIKE ?" +
 					" OR titulo LIKE ? OR formato LIKE ? OR ISBN LIKE ?" +
 					" OR pie_imprenta LIKE ? OR descripcion LIKE ? OR idioma LIKE ?" );
-			pst.setString(1,key);
-			pst.setString(2,key);
-			pst.setString(3,key);
-			pst.setString(4,key);
-			pst.setString(5,key);
-			pst.setString(6,key);
-			pst.setString(7,key);
-			pst.setString(8,key);
+			pst.setString(1, "%"+key+"%");
+			pst.setString(2, "%"+key+"%");
+			pst.setString(3, "%"+key+"%");
+			pst.setString(4, "%"+key+"%");
+			pst.setString(5, "%"+key+"%");
+			pst.setString(6, "%"+key+"%");
+			pst.setString(7, "%"+key+"%");
+			pst.setString(8, "%"+key+"%");
 
 			ResultSet rs = pst.executeQuery();
 			while (rs.next()) {
