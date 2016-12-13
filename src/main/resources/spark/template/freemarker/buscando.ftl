@@ -68,7 +68,7 @@
             <th>Codigo</th>
             <th>Autor</th>
             <th>Titulo</th>
-            <th>ISBN</th>
+            <th>Descripcion</th>
             <th>Formato</th>
         </tr>
     </thead>
@@ -95,7 +95,7 @@
                             $('<td>').text(item.codigoClasificacion),
                             $('<td>').text(item.autor),
                             $('<td>').text(item.Titulo),
-                            $('<td>').text(item.isbn),
+                            $('<td>').text(item.descripcion),
                             $('<td>').text(item.formato)
                     ).appendTo('#tabla');
                 });

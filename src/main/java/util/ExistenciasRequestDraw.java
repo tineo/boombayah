@@ -13,7 +13,7 @@ public class ExistenciasRequestDraw extends Existencias {
         if(this.request.queryParams("id_existencias")!=null)
             super.setId_Existencias(Integer.parseInt(this.request.queryParams("id_existencias")));
 
-        super.setCodigoLibro(this.request.queryParams("codigo_libro"));
+        super.setCodigoLibro(this.request.queryParams("id_libro"));
 
 
         

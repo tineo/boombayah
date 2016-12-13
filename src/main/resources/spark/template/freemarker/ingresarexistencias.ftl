@@ -40,11 +40,6 @@
                     </div>
                 </div>
 
-                <div class="field">
-                    <div class="ui input">
-                        <input type="text" name="autor" placeholder="Autor">
-                    </div>
-                </div>
 
                 <div class="field">
                     <div class="ui input">
