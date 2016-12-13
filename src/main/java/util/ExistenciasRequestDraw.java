@@ -15,7 +15,7 @@ public class ExistenciasRequestDraw extends Existencias {
 
         super.setCodigo_libro(this.request.queryParams("codigo_libro"));
 
-        super.setCodigo_existencia(this.request.queryParams("codigo_existencia"));
+        //super.setCodigo_existencia(this.request.queryParams("codigo_existencia"));
         
         super.setUbicacion(this.request.queryParams("ubicacion"));
 
