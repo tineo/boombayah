@@ -34,64 +34,56 @@
     <div class="column">
         <h2 class="ui teal image header">
             <div class="content">
-                Ingreso de libros
+                Ingreso de usuario
             </div>
         </h2>
-        <form class="ui large form" action="/form/ingresarlibro" method="POST">
+        <form class="ui large form" action="/form/ingresarusuario" method="POST">
             <div class="ui stacked segment">
+
+
+
+
+
                 <div class="field">
                     <div class="ui input">
-                        <input type="text" name="codigoClasificacion" placeholder="Codigo de clasificacion">
+                        <input type="text" name="username" placeholder="username">
                     </div>
                 </div>
 
                 <div class="field">
                     <div class="ui input">
-                        <input type="text" name="titulo" placeholder="Titulo">
+                        <input type="password" name="password" placeholder="password">
                     </div>
                 </div>
 
                 <div class="field">
                     <div class="ui input">
-                        <input type="text" name="formato" placeholder="Formato">
+                        <input type="text" name="nombres" placeholder="Nombres">
                     </div>
                 </div>
 
                 <div class="field">
                     <div class="ui input">
-                        <input type="text" name="isbn" placeholder="ISBN">
+                        <input type="text" name="apellido_paterno" placeholder="Apellido Paterno">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui input">
+                        <input type="text" name="apellido_materno" placeholder="Apellido Materno">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui input">
+                        <input type="text" name="telefono" placeholder="Telefono">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui input">
+                        <input type="text" name="email" placeholder="email">
                     </div>
                 </div>
 
-                <div class="field">
-                    <div class="ui input">
-                        <input type="text" name="autor" placeholder="Autor">
-                    </div>
-                </div>
 
-                <div class="field">
-                    <div class="ui input">
-                        <input type="text" name="pieImprenta" placeholder="Pie de imprenta">
-                    </div>
-                </div>
-
-                <div class="field">
-                    <div class="ui input">
-                        <input type="text" name="paginas" placeholder="Paginas">
-                    </div>
-                </div>
-
-                <div class="field">
-                    <div class="ui input">
-                        <input type="text" name="descripcion" placeholder="Descripcion">
-                    </div>
-                </div>
-
-                <div class="field">
-                    <div class="ui input">
-                        <input type="text" name="idioma" placeholder="Idioma">
-                    </div>
-                </div>
 
                 <div class="field">
                     <div class="ui input">
@@ -105,8 +97,9 @@
         </form>
     </div>
 </div>
+
 <script type="text/javascript">
-    $(function() {
+   /* $(function() {
 
         alert('form');
         $('form')
@@ -133,7 +126,7 @@
                     }
                 })
         ;
-    });
+    });*/
 
 </script>
 </body>

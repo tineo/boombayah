@@ -3,16 +3,16 @@ package entity;
 public class Libro {
 
 	int id_libro;
-	String Codigo_clasificacion;
+	String codigoClasificacion;
 	String Titulo;
-	String Formato;
-	String ISBN;
-	String Autor;
-	String Pie_imprenta;
-	int Paginas;
-	String Descripcion;
-	String Idioma;
-	int Vistas;
+	String formato;
+	String isbn;
+	String autor;
+	String pieImprenta;
+	int paginas;
+	String descripcion;
+	String idioma;
+	int vistas;
 	
 	public int getCodigo_libro() {
 		return id_libro;
@@ -20,11 +20,11 @@ public class Libro {
 	public void setCodigo_libro(int codigo_libro) {
 		id_libro = codigo_libro;
 	}
-	public String getCodigo_clasificacion() {
-		return Codigo_clasificacion;
+	public String getCodigoClasificacion() {
+		return codigoClasificacion;
 	}
-	public void setCodigo_clasificacion(String codigo_clasificacion) {
-		Codigo_clasificacion = codigo_clasificacion;
+	public void setCodigoClasificacion(String codigoClasificacion) {
+		this.codigoClasificacion = codigoClasificacion;
 	}
 	public String getTitulo() {
 		return Titulo;
@@ -33,51 +33,51 @@ public class Libro {
 		Titulo = titulo;
 	}
 	public String getFormato() {
-		return Formato;
+		return formato;
 	}
 	public void setFormato(String formato) {
-		Formato = formato;
+		this.formato = formato;
 	}
-	public String getISBN() {
-		return ISBN;
+	public String getIsbn() {
+		return isbn;
 	}
-	public void setISBN(String iSBN) {
-		ISBN = iSBN;
+	public void setIsbn(String iSBN) {
+		isbn = iSBN;
 	}
 	public String getAutor() {
-		return Autor;
+		return autor;
 	}
 	public void setAutor(String autor) {
-		Autor = autor;
+		this.autor = autor;
 	}
-	public String getPie_imprenta() {
-		return Pie_imprenta;
+	public String getPieImprenta() {
+		return pieImprenta;
 	}
-	public void setPie_imprenta(String pie_imprenta) {
-		Pie_imprenta = pie_imprenta;
+	public void setPieImprenta(String pieImprenta) {
+		this.pieImprenta = pieImprenta;
 	}
 	public int getPaginas() {
-		return Paginas;
+		return paginas;
 	}
 	public void setPaginas(int paginas) {
-		Paginas = paginas;
+		this.paginas = paginas;
 	}
 	public String getDescripcion() {
-		return Descripcion;
+		return descripcion;
 	}
 	public void setDescripcion(String descripcion) {
-		Descripcion = descripcion;
+		this.descripcion = descripcion;
 	}
 	public String getIdioma() {
-		return Idioma;
+		return idioma;
 	}
 	public void setIdioma(String idioma) {
-		Idioma = idioma;
+		this.idioma = idioma;
 	}
 	public int getVistas() {
-		return Vistas;
+		return vistas;
 	}
 	public void setVistas(int vistas) {
-		Vistas = vistas;
+		this.vistas = vistas;
 	}
 }

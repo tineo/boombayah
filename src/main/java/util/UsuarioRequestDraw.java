@@ -13,7 +13,7 @@ public class UsuarioRequestDraw extends Usuario {
 
         if(this.request.queryParams("id_usuario")!=null)
             super.setId_usuario(Integer.parseInt(this.request.queryParams("id_usuario")));
-        super.setCodigo_usuario(this.request.queryParams("codigo_usuario"));
+
         super.setUsername(this.request.queryParams("username"));
 
         super.setPassword(this.request.queryParams("password"));

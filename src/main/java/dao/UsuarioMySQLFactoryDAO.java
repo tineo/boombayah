@@ -110,17 +110,16 @@ public class UsuarioMySQLFactoryDAO implements UsuarioDAO {
         int last = 0;
 
         try {
-            ps = this.connection.prepareStatement("INSERT INTO usuario VALUES (NULL ,?,?,?,?,1,?,?,?,?)"
+            ps = this.connection.prepareStatement("INSERT INTO usuario VALUES (NULL,?,?,?,?,?,?,?,?)"
                     , Statement.RETURN_GENERATED_KEYS);
-            ps.setString(1,usuario.getCodigo_usuario());
-            ps.setString(2,usuario.getNombres());
-            ps.setString(3,usuario.getApellido_paterno());
-            ps.setString(4,usuario.getApellido_materno());
-            ps.setString(5,usuario.getEstado() );
-            ps.setInt(6,usuario.getTelefono());
-            ps.setString(7,usuario.getEmail());
-            ps.setString(8,usuario.getUsername());
-            ps.setString(9,usuario.getPassword());
+            ps.setString(1,usuario.getNombres());
+            ps.setString(2,usuario.getApellido_paterno());
+            ps.setString(3,usuario.getApellido_materno());
+            ps.setString(4,usuario.getEstado() );
+            ps.setInt(5,usuario.getTelefono());
+            ps.setString(6,usuario.getEmail());
+            ps.setString(7,usuario.getUsername());
+            ps.setString(8,usuario.getPassword());
 
             ps.executeUpdate();
 

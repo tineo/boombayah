@@ -2,12 +2,23 @@
  * Created by Alejandro on 24/11/2016.
  */
 
+import service.ExistenciasServiceImpl;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import dao.Etiqueta_libroMySQLFactoryDAO;
+import entity.Etiqueta_libro;
+import entity.Libro;
 import service.LibroServiceImpl;
+import service.UsuarioServiceImpl;
 import spark.ModelAndView;
 import spark.template.freemarker.FreeMarkerEngine;
+import util.ExistenciasRequestDraw;
 import util.LibroRequestDraw;
+import util.UsuarioRequestDraw;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static spark.Spark.*;
@@ -40,6 +51,55 @@ public class Main {
 
             res.redirect("/ingresar/libro?msg=ok");
             return "OK";
+        });
+
+
+        /*Existencias*/
+        get("/ingresar/existencias", (req, res) -> {
+            Map<String, Object> attributes = new HashMap<>();
+            return new ModelAndView(attributes, "ingresarexistencias.ftl");
+        }, new FreeMarkerEngine());
+
+        get("/bus", (req, res) -> {
+            Map<String, Object> attributes = new HashMap<>();
+            return new ModelAndView(attributes, "buscando.ftl");
+        }, new FreeMarkerEngine());
+
+        post("/form/ingresarexistencias", (req, res) -> {
+            //Libro libro =  new LibroRequestDraw(req);
+
+            ExistenciasServiceImpl service = new ExistenciasServiceImpl();
+            service.insertarExistencias(new ExistenciasRequestDraw(req));
+
+            res.redirect("/ingresar/existencias?msg=ok");
+            return "OK";
+        });
+        /*Usuario*/
+        get("/ingresar/usuario", (req, res) -> {
+            Map<String, Object> attributes = new HashMap<>();
+            return new ModelAndView(attributes, "ingresarusuario.ftl");
+        }, new FreeMarkerEngine());
+
+        post("/form/ingresarusuario", (req, res) -> {
+            //Libro libro =  new LibroRequestDraw(req);
+
+            UsuarioServiceImpl service = new UsuarioServiceImpl();
+            service.insertarUsuario(new UsuarioRequestDraw(req));
+
+            res.redirect("/ingresar/usuario?msg=ok");
+            return "OK";
+        });
+
+        before("/", (request, response) -> {
+            if (request.session().attribute("user") == null) {
+                response.redirect("/login");
+            }
+        });
+
+        before("/registrar/*", (request, response) -> {
+            if (request.session().attribute("user") == null) {
+                response.redirect("/login");
+            }
         });
 
         /*before("/", (request, response) -> {
@@ -89,28 +149,41 @@ public class Main {
             return new ModelAndView(attributes, "master.ftl");
         }, new FreeMarkerEngine());
 
-        get("/ingresar/paciente", (req, res) -> {
-            Map<String, Object> attributes = new HashMap<>();
-            return new ModelAndView(attributes, "ingresar_paciente.ftl");
-        }, new FreeMarkerEngine());
+         /*Validar*/
+        post("/validar",(req, res) -> {
 
-        get("/ingresar/psicologo", (req, res) -> {
             Map<String, Object> attributes = new HashMap<>();
-            return new ModelAndView(attributes, "ingresar_psicologo.ftl");
-        }, new FreeMarkerEngine());
 
-        get("/registrar/sesion", (req, res) -> {
-            Map<String, Object> attributes = new HashMap<>();
-            return new ModelAndView(attributes, "registrar_sesion.ftl");
-        }, new FreeMarkerEngine());
+            String username = req.queryParams("username");
+            String password = req.queryParams("password");
+
+            UsuarioServiceImpl service = new UsuarioServiceImpl();
+            try {
+                if(service.validarUsuario(username, password)){
+                    //Creacion de la sesion
+                    req.session().attribute("user", username);
+
+                    res.redirect("/");
+                }else{
+                    res.redirect("/login");
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            //return new ModelAndView(attributes, "login.ftl");
+            return "OK";
+        });
+
+
+
 
         //PRUEBADAO
 
         /*
         Etiqueta_libroMySQLFactoryDAO el =new Etiqueta_libroMySQLFactoryDAO();
         Etiqueta_libro e = new Etiqueta_libro();
-        e.setCodigo_etiqueta("125877");
-        e.setCodigo_libro("122345");
+        e.setId_etiqueta("125877");
+        e.setCodigoLibro("122345");
         List<Etiqueta_libro> al = new ArrayList<Etiqueta_libro>();
         al = el.buscar(e);
         */
@@ -264,30 +337,27 @@ public class Main {
 
             return new ModelAndView(attributes, "index.ftl");
         }, new FreeMarkerEngine());
-
-
+*/
         Gson gson = new GsonBuilder()
                 .setDateFormat("MM/dd/yyyy HH:mm:ss").create();
         //.setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS").create();
         //new Gson ();
-        get("/json","application/json",(request,response)->{
+        get("/json/:key","application/json",(request,response)->{
+            String key = request.params(":key");
+            LibroServiceImpl service = new LibroServiceImpl();
 
-            Psicologo psico =  new Psicologo();
-            psico.setNombres("s");
-
-            PsicologoServiceImpl s =  new PsicologoServiceImpl();
-            return s.buscarPsicologos(psico);
+            return service.buscarLibro(key);
 
             //PacienteServiceImpl pa= new PacienteServiceImpl();
             //return pa.listarPaciente();
 
         },gson::toJson);
-
+/*
         get("/json/psicologo/:accion","application/json",(request,response)->{
 
             String accion = request.params(":accion");
 
-            Psicologo psicologo =  new PsicologoRequestDraw(request);
+                Psicologo psicologo =  new PsicologoRequestDraw(request);
             int codigo = psicologo.getCodigo_psicologo();
 
             PsicologoServiceImpl pa= new PsicologoServiceImpl();

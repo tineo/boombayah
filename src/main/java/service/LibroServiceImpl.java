@@ -25,4 +25,9 @@ public class LibroServiceImpl implements  LibroService {
     public int eliminarLibro(int id_libro) throws Exception {
         return libroDAO.eliminarLibro(id_libro);
     }
+
+    @Override
+    public List<Libro> buscarLibro(String key) throws Exception {
+        return libroDAO.buscarLibro(key);
+    }
 }

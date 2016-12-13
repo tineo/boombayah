@@ -2,7 +2,7 @@ package entity;
 
 public class Usuario {
     int id_usuario;
-    String codigo_usuario;
+
     String nombres;
     String apellido_paterno;
     String apellido_materno;
@@ -12,9 +12,8 @@ public class Usuario {
     String username;
     String password;
 
-    public Usuario(int id_usuario, String codigo_usuario, String nombres, String apellido_paterno, String apellido_materno, String estado, int telefono, String email, String username, String password) {
+    public Usuario(int id_usuario, String nombres, String apellido_paterno, String apellido_materno, String estado, int telefono, String email, String username, String password) {
         this.id_usuario = id_usuario;
-        this.codigo_usuario = codigo_usuario;
         this.nombres = nombres;
         this.apellido_paterno = apellido_paterno;
         this.apellido_materno = apellido_materno;
@@ -36,13 +35,6 @@ public class Usuario {
         this.id_usuario = id_usuario;
     }
 
-    public String getCodigo_usuario() {
-        return codigo_usuario;
-    }
-
-    public void setCodigo_usuario(String codigo_usuario) {
-        this.codigo_usuario = codigo_usuario;
-    }
 
     public String getNombres() {
         return nombres;

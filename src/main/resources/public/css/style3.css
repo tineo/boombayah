@@ -1,0 +1,112 @@
+body{
+	background-color:#f2f2f2;
+	background-attachment:fixed;
+	background-repeat: no-repeat;
+	background-position: center;
+	
+}
+.titulo{
+	position:fixed;
+	text-align:center;
+	margin: 0 auto;
+	top:35px;
+	left:120px;
+	font-size:50px;
+	color:#F8FF5E;
+	text-shadow: -2px -2px 1px #000, 2px 2px 1px #000, -2px 2px 1px #000, 2px -2px 1px #000;
+}
+#tabla {
+    border-collapse: collapse;
+    width: 100%;
+	
+}
+#tabla th{
+	background-color:#7782FF;
+	text-align:center;
+}
+th, td {
+    text-align: left;
+    padding: 8px;
+	border:1px solid black;
+}
+tr:nth-child(even){background-color:white}
+tr:nth-child(odd){background-color:#dadada}
+#logo{
+	position:fixed;
+	top:20px;
+	left:20px;
+	
+}
+
+#searchbox{
+	background-attachment:fixed;
+	background-color: gray;
+    background-image: linear-gradient(#ffe27c, #ffeb8a);
+    border-color: #c4d9df #a4c3ca #83afb7;
+    height:  190px;
+    padding: 10px;
+}
+div.logo{
+	float:left;
+	
+}
+#botones{
+	font-weight:bold;
+	font-family:Lucida Console;
+	float:right;
+}
+div.titulo{
+	float:left;
+	position:fixed;
+	background-attachment:fixed;
+}
+#buscador{
+	border-radius: 10px;
+	height:20px;
+	font-weight:bold;
+	
+}
+#Search{
+	border-radius:10px;
+    color: #4b4f56;
+    font-weight: bold;
+    height: 30px;
+    padding: 0 15px 0 15px;
+    
+}
+
+.topbar{
+  background-color: #3b5998;
+  position:float;
+  overflow:hidden;
+    border-width: 1px;
+    border-color: #c4d9df #a4c3ca #83afb7;
+    padding: 10px; height:110px; margin: 0 ; 
+	margin-left : 0%;
+}
+#prev    {
+    background-color: #3b5998; 
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 8px 4px;
+    cursor: pointer;
+	border-radius: 10px;
+	padding: 3px 5px;
+}
+#next{
+    background-color: #3b5998;
+	border-radius: 10px;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 8px 4px;
+    cursor: pointer;
+	padding: 3px 5px;
+}
