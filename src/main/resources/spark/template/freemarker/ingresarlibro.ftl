@@ -1,35 +1,13 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ingresar</title>
+<#include "master.ftl">
 
-    <link rel="stylesheet" type="text/css" href="/semantic/dist/semantic.min.css">
+<#macro head>
+<link rel="stylesheet" type="text/css" href="/semantic/dist/semantic.min.css">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="/semantic/dist/semantic.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="/semantic/dist/semantic.min.js"></script>
 
-    <style>
-
-        body {
-            background-color: #e6e6e6;
-        }
-        body > .grid {
-            height: 100%;
-        }
-        .image {
-            margin-top: -100px;
-        }
-        .column {
-            max-width: 450px;
-        }
-
-    </style>
-</head>
-<body>
+</#macro>
+<#macro content>
 <div class="ui middle aligned center aligned grid">
     <div class="column">
         <h2 class="ui teal image header">
@@ -108,7 +86,7 @@
 <script type="text/javascript">
     $(function() {
 
-        alert('form');
+        //alert('form');
         $('form')
                 .form({
                     fields: {
@@ -136,5 +114,6 @@
     });
 
 </script>
-</body>
-</html>
+</#macro>
+
+<@display_page />

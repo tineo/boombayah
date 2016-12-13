@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title class="titulo">Biblioteca FISI</title>
-    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    <link rel="shortcut icon" type="image/x-icon" href="/logo.png" class="imagenLogo" >
-    <link rel="stylesheet" href="/css/style3.css">
-</head>
-<body>
-<div class="topbar">
+<#include "master.ftl">
+
+<#macro head>
+<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/css/style3.css">
+</#macro>
+<#macro content>
+
+<!--<div class="topbar">
     <div>
         <img id="logo" src="logo.png" alt="logoBibliotecaFisi" height="90" width="90" >
     </div>
@@ -17,7 +14,7 @@
         <h1 class="titulo"  > FISI - Biblioteca  </h1>
     </div>
 
-</div>
+</div>-->
 <div id="cajaBusq">
     <FORM id="searchbox" >
         <div><strong>Busquedad Basica</strong></div>
@@ -107,5 +104,7 @@
         });
     });
     </script>
-</body>
-</html>
+
+</#macro>
+
+<@display_page />
