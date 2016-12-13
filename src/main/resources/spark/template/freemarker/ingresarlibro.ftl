@@ -19,7 +19,7 @@
             <div class="ui stacked segment">
                 <div class="field">
                     <div class="ui input">
-                        <input type="text" name="codigoClasificacion" placeholder="Codigo de clasificacion">
+                        <input type="text" name="codigo_clasificacion" placeholder="Codigo de clasificacion">
                     </div>
                 </div>
 
