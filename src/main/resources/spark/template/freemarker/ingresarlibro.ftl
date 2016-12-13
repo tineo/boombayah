@@ -49,7 +49,7 @@
 
                 <div class="field">
                     <div class="ui input">
-                        <input type="text" name="pieImprenta" placeholder="Pie de imprenta">
+                        <input type="text" name="pie_imprenta" placeholder="Pie de imprenta">
                     </div>
                 </div>
 
