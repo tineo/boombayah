@@ -2,12 +2,9 @@
  * Created by Alejandro on 24/11/2016.
  */
 
-import service.ExistenciasServiceImpl;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import dao.Etiqueta_libroMySQLFactoryDAO;
-import entity.Etiqueta_libro;
-import entity.Libro;
+import service.ExistenciasServiceImpl;
 import service.LibroServiceImpl;
 import service.UsuarioServiceImpl;
 import spark.ModelAndView;
@@ -16,9 +13,7 @@ import util.ExistenciasRequestDraw;
 import util.LibroRequestDraw;
 import util.UsuarioRequestDraw;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import static spark.Spark.*;
@@ -53,6 +48,10 @@ public class Main {
             return "OK";
         });
 
+        get("/ingresar/etiqueta", (req, res) -> {
+            Map<String, Object> attributes = new HashMap<>();
+            return new ModelAndView(attributes, "ingresaretiquetas.ftl");
+        }, new FreeMarkerEngine());
 
         /*Existencias*/
         get("/ingresar/existencias", (req, res) -> {
